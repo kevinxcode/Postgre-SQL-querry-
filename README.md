@@ -1,23 +1,31 @@
 # Postgre-SQL-querry
 
-# update timestamp when update execute
+# update timestamp when update execute - workplaze approval table
 ```
--- FUNCTION: public.update_updated_on_user_task()
+-- FUNCTION: workplaze.update_tmstime_approval_struck()
 
--- DROP FUNCTION IF EXISTS public.update_updated_on_user_task();
+-- DROP FUNCTION IF EXISTS workplaze.update_tmstime_approval_struck();
 
-CREATE OR REPLACE FUNCTION public.update_updated_on_user_task()
+CREATE OR REPLACE FUNCTION workplaze.update_tmstime_approval_struck()
     RETURNS trigger
     LANGUAGE 'plpgsql'
     COST 100
     VOLATILE NOT LEAKPROOF
 AS $BODY$
 BEGIN
-    NEW.updated_on = now();
+    NEW.timestamp = now();
     RETURN NEW;
 END;
 $BODY$;
 
-ALTER FUNCTION public.update_updated_on_user_task()
+ALTER FUNCTION workplaze.update_tmstime_approval_struck()
     OWNER TO postgres;
+
+
+CREATE TRIGGER update_tmstime_approval_struck_on
+    BEFORE UPDATE
+    ON
+        workplaze.approval
+    FOR EACH ROW
+EXECUTE PROCEDURE workplaze.update_tmstime_approval_struck();
 ```
