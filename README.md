@@ -1,5 +1,11 @@
 # Postgre-SQL-querry
 
+# list all trigger 
+```
+SELECT trigger_name, event_manipulation, event_object_table, action_statement 
+FROM information_schema.triggers;
+```
+
 # update timestamp when update execute - workplaze approval table
 ```
 -- FUNCTION: workplaze.update_tmstime_approval_struck()
