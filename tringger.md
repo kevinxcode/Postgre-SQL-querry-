@@ -37,3 +37,13 @@ CREATE TRIGGER emp_audit
 AFTER INSERT OR UPDATE OR DELETE ON emp
     FOR EACH ROW EXECUTE PROCEDURE process_emp_audit();
 ```
+
+# get all triggger
+```
+select * from information_schema.triggers;
+```
+
+# drop trigger
+```
+DROP TRIGGER username_check ON staff;
+```
