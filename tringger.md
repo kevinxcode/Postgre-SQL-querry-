@@ -47,3 +47,4 @@ select * from information_schema.triggers;
 ```
 DROP TRIGGER username_check ON staff;
 ```
+
