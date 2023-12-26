@@ -17,7 +17,7 @@ begin
 		RAISE NOTICE 'update ';
 		UPDATE workplaze.account
 	SET fullname=sql_cur._name, username=sql_cur._nik
-	WHERE global_id=sql_cur._gid;
+	WHERE global_id=sql_cur._gid and account_type='zimbra' ;
 	ELSE
 		RAISE NOTICE 'insert ';
 		INSERT INTO workplaze.account(
