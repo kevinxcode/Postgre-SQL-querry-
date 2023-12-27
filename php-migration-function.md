@@ -38,8 +38,8 @@ class Login extends MY_Controller {
 		CURLOPT_CUSTOMREQUEST => 'POST',
 		CURLOPT_POSTFIELDS =>'{"username":"'.$nik.'","password":"'.$password.'"}',
 		CURLOPT_HTTPHEADER => array(
-			'Authorization: BoP2023!',
-			'User-Agent: bop.citratubindo.com',
+			'Authorization: '.sso_auth.'',
+			'User-Agent: '.sso_user.'',
 			'Content-Type: text/plain'
 		),
 		));
@@ -126,4 +126,10 @@ function login_accept($res_arr){
 /* End of file upload.php */
 /* Location: ./system/application/controllers/admin/login.php */
 
+
+```
+
+```
+define('sso_auth', 'BoP2023!');
+define('sso_user', 'bop.citratubindo.com');
 ```
