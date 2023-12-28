@@ -38,6 +38,13 @@ AFTER INSERT OR UPDATE OR DELETE ON emp
     FOR EACH ROW EXECUTE PROCEDURE process_emp_audit();
 ```
 
+```
+logging 
+CREATE TRIGGER save_log
+BEFORE UPDATE OR DELETE ON 
+    FOR EACH ROW EXECUTE PROCEDURE workplaze.save_log();
+```
+
 # get all triggger
 ```
 select * from information_schema.triggers;
