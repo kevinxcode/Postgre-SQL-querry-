@@ -1,0 +1,29 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+Options -Indexes
+IndexIgnore *
+
+IndexIgnore *.png *.zip *.jpg *.gif *.doc
+
+<Files ".htaccess">
+    Require all denied
+</Files>
+
+
+# Deny access to files with extensions .ini, .psd, .log, .sh
+<FilesMatch "\.(ini|psd|log|sh|json|lock|txt|rst|md)$">
+Order allow,deny
+Deny from all
+
+</FilesMatch>
+
+# Deny access to filenames starting with dot(.)
+<FilesMatch "^\.">
+Order allow,deny
+Deny from all
+</FilesMatch>
+
+
