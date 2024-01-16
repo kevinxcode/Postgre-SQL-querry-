@@ -92,7 +92,8 @@ function login_accept($res_arr){
 				'bop_dept'  => $res_arr[0]->_dept,
 				'bop_jab'  => $res_arr[0]->_jab,
 				'bop_role'  => $role,
-				'bop_telegram'  => $telegram
+				'bop_telegram'  => $telegram,
+				'bop_telegram'  => $res_arr[0]->_login_as,
 			);
 			$this->session->set_userdata($usersession);
 			$priviledge = [];
