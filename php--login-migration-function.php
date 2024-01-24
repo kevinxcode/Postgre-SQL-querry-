@@ -48,6 +48,10 @@ class Login extends MY_Controller {
 		$arr = json_decode($response);
 		if($arr->loginCodes=='success'){
 			$res_arr = $arr->details;
+			if(empty($res_arr[0]->_nik)){
+				$this->session->set_flashdata('alert', 'Account invalid please contact administrator');
+				redirect('app/login'); exit;
+			}
 			 $res_arr[0]->_nik;
 			 $this->login_accept($res_arr);
 		}else{
