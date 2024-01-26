@@ -2,7 +2,6 @@
 ```
 do
 $$
-
 declare
      sql_cur record;
 	 sql_cur_2 record;
